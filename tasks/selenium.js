@@ -23,6 +23,10 @@ module.exports = function (grunt) {
       port: 4444
     });
 
+    if ( typeof options.jar === 'function' ) {
+      options.jar = options.jar();
+    }
+
     grunt.log.write('Startup selenium server standalone at 0.0.0.0:' + options.port + '...');
 
     var result = true;
